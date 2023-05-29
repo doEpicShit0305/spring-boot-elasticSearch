@@ -16,6 +16,14 @@ public class ProductController {
     Iterable<Product> findAll(){
         return productService.getProducts();
 
+//    @GetMapping("/findAll")
+//    Iterable<Product> findAll(){
+//        return productService.getProducts();
+//    }
+
+    @PostMapping("/findAll")
+    public Iterable<Product> findAll(@RequestParam String field, @RequestParam String filter) {
+        return productService.getProducts(field, filter);
     }
 
     @PostMapping("/insert")
